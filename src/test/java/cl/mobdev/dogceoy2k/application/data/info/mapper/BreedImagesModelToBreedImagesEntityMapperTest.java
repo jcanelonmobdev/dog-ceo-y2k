@@ -16,9 +16,9 @@ class BreedImagesModelToBreedImagesEntityMapperTest {
     private BreedImagesModelToBreedImagesEntityMapper sut;
     private BreedImagesEntity breedImagesEntityMock;
     private final String DATA_STATUS = "success";
-    private final String DATA_SUBBREED_1 = "french";
-    private final String DATA_SUBBREED_2 = "english";
-    private final String DATA_SUBBREED_3 = "boston";
+    private final String DATA_IMAGES_1 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175933.jpg";
+    private final String DATA_IMAGES_2 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175944.jpg";
+    private final String DATA_IMAGES_3 = "https://images.dog.ceo/breeds/bulldog-boston/n02096585_10380.jpg";
 
     @BeforeEach
     void setUp() {
@@ -27,9 +27,9 @@ class BreedImagesModelToBreedImagesEntityMapperTest {
         breedImagesEntityMock = new BreedImagesEntity();
         breedImagesEntityMock.status = DATA_STATUS;
         breedImagesEntityMock.message = new ArrayList<>();
-        breedImagesEntityMock.message.add(DATA_SUBBREED_1);
-        breedImagesEntityMock.message.add(DATA_SUBBREED_2);
-        breedImagesEntityMock.message.add(DATA_SUBBREED_3);
+        breedImagesEntityMock.message.add(DATA_IMAGES_1);
+        breedImagesEntityMock.message.add(DATA_IMAGES_2);
+        breedImagesEntityMock.message.add(DATA_IMAGES_3);
     }
 
     @Test

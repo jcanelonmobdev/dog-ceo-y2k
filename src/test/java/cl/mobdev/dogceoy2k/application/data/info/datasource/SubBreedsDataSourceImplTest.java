@@ -20,9 +20,9 @@ class SubBreedsDataSourceImplTest {
 
     private final String BREED_NAME = "bulldog";
     private final String DATA_STATUS = "success";
-    private final String DATA_IMAGES_1 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175933.jpg";
-    private final String DATA_IMAGES_2 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175944.jpg";
-    private final String DATA_IMAGES_3 = "https://images.dog.ceo/breeds/bulldog-boston/n02096585_10380.jpg";
+    private final String DATA_SUBBREED_1 = "french";
+    private final String DATA_SUBBREED_2 = "english";
+    private final String DATA_SUBBREED_3 = "boston";
 
     private SubBreedsDataSourceImpl sut;
     private SubBreedsEntity subBreedsEntityMock;
@@ -41,9 +41,9 @@ class SubBreedsDataSourceImplTest {
         subBreedsEntityMock = new SubBreedsEntity();
         subBreedsEntityMock.status = DATA_STATUS;
         subBreedsEntityMock.message = new ArrayList<>();
-        subBreedsEntityMock.message.add(DATA_IMAGES_1);
-        subBreedsEntityMock.message.add(DATA_IMAGES_2);
-        subBreedsEntityMock.message.add(DATA_IMAGES_3);
+        subBreedsEntityMock.message.add(DATA_SUBBREED_1);
+        subBreedsEntityMock.message.add(DATA_SUBBREED_2);
+        subBreedsEntityMock.message.add(DATA_SUBBREED_3);
     }
 
     @Test
