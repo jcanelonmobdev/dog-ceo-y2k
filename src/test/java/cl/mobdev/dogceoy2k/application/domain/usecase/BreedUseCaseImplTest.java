@@ -24,7 +24,6 @@ class BreedUseCaseImplTest {
     private SubBreedsModel subBreedsModelMock;
 
     private final String BREED_NAME = "bulldog";
-    private final String DATA_STATUS = "success";
 
     private final String DATA_IMAGES_1 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175933.jpg";
     private final String DATA_IMAGES_2 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175944.jpg";
