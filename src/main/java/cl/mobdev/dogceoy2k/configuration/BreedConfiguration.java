@@ -8,16 +8,13 @@ import cl.mobdev.dogceoy2k.application.data.info.entity.BreedImagesEntity;
 import cl.mobdev.dogceoy2k.application.data.info.entity.SubBreedsEntity;
 import cl.mobdev.dogceoy2k.application.data.info.mapper.BreedImagesModelToBreedImagesEntityMapper;
 import cl.mobdev.dogceoy2k.application.data.info.mapper.SubBreedsModelToSubBreedsEntityMapper;
-import cl.mobdev.dogceoy2k.application.data.info.repository.BreedImagesRepository;
-import cl.mobdev.dogceoy2k.application.data.info.repository.BreedImagesRepositoryImpl;
-import cl.mobdev.dogceoy2k.application.data.info.repository.SubBreedsRepository;
-import cl.mobdev.dogceoy2k.application.data.info.repository.SubBreedsRepositoryImpl;
+import cl.mobdev.dogceoy2k.application.data.info.repository.*;
 import cl.mobdev.dogceoy2k.application.domain.model.BreedImagesModel;
 import cl.mobdev.dogceoy2k.application.domain.model.SubBreedsModel;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedImagesUseCase;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedImagesUseCaseImpl;
-import cl.mobdev.dogceoy2k.application.domain.usecase.BreedUseCase;
-import cl.mobdev.dogceoy2k.application.domain.usecase.BreedUseCaseImpl;
+import cl.mobdev.dogceoy2k.application.domain.usecase.BreedInfoUseCase;
+import cl.mobdev.dogceoy2k.application.domain.usecase.BreedInfoUseCaseImpl;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailControllerImpl;
 import cl.mobdev.dogceoy2k.application.presentation.BreedImagesController;
@@ -34,8 +31,8 @@ public class BreedConfiguration {
     // Presentation
 
     @Bean
-    BreedDetailController breedDetailController(BreedUseCase breedUseCase){
-        return new BreedDetailControllerImpl(breedUseCase);
+    BreedDetailController breedDetailController(BreedInfoUseCase breedInfoUseCase){
+        return new BreedDetailControllerImpl(breedInfoUseCase);
     }
 
     @Bean
@@ -46,11 +43,10 @@ public class BreedConfiguration {
     // Domain.useCase
 
     @Bean
-    BreedUseCase breedUseCase(
-            SubBreedsRepository subBreedsRepository,
-            BreedImagesRepository breedImagesRepository
+    BreedInfoUseCase breedInfoUseCase(
+            BreedInfoRepository breedImagesRepository
     ){
-        return new BreedUseCaseImpl(subBreedsRepository, breedImagesRepository);
+        return new BreedInfoUseCaseImpl(breedImagesRepository);
     }
 
     @Bean
@@ -76,6 +72,14 @@ public class BreedConfiguration {
             BreedImagesDataSource breedImagesDataSource
     ) {
         return new BreedImagesRepositoryImpl(breedImagesModelBreedImagesEntityMapper, breedImagesDataSource);
+    }
+
+    @Bean
+    BreedInfoRepository breedInfoRepository(
+            BreedImagesRepository breedImagesRepository,
+            SubBreedsRepository subBreedsRepository
+    ){
+        return new BreedInfoRepositoryImpl(breedImagesRepository, subBreedsRepository);
     }
 
     // Data.mapper

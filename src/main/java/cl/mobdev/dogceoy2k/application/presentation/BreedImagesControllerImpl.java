@@ -1,9 +1,7 @@
 package cl.mobdev.dogceoy2k.application.presentation;
 
 import cl.mobdev.dogceoy2k.application.domain.model.BreedImagesModel;
-import cl.mobdev.dogceoy2k.application.domain.model.BreedModel;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedImagesUseCase;
-import cl.mobdev.dogceoy2k.application.domain.usecase.BreedImagesUseCaseImpl;
 import cl.mobdev.dogceoy2k.application.presentation.body.BreedImagesBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -13,6 +13,7 @@ public class BreedImagesUseCaseImpl implements BreedImagesUseCase {
 
     @Override
     public BreedImagesModel getBreedImages(String breed) {
+
         return this.breedImagesRepository.getBreedImages(breed);
     }
 }
