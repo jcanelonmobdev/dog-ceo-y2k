@@ -14,10 +14,14 @@ import cl.mobdev.dogceoy2k.application.data.info.repository.SubBreedsRepository;
 import cl.mobdev.dogceoy2k.application.data.info.repository.SubBreedsRepositoryImpl;
 import cl.mobdev.dogceoy2k.application.domain.model.BreedImagesModel;
 import cl.mobdev.dogceoy2k.application.domain.model.SubBreedsModel;
+import cl.mobdev.dogceoy2k.application.domain.usecase.BreedImagesUseCase;
+import cl.mobdev.dogceoy2k.application.domain.usecase.BreedImagesUseCaseImpl;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedUseCase;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedUseCaseImpl;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailControllerImpl;
+import cl.mobdev.dogceoy2k.application.presentation.BreedImagesController;
+import cl.mobdev.dogceoy2k.application.presentation.BreedImagesControllerImpl;
 import cl.mobdev.dogceoy2k.common.Mapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +38,11 @@ public class BreedConfiguration {
         return new BreedDetailControllerImpl(breedUseCase);
     }
 
+    @Bean
+    BreedImagesController breedImagesController(BreedImagesUseCase breedImagesUseCase){
+        return new BreedImagesControllerImpl(breedImagesUseCase);
+    }
+
     // Domain.useCase
 
     @Bean
@@ -42,6 +51,13 @@ public class BreedConfiguration {
             BreedImagesRepository breedImagesRepository
     ){
         return new BreedUseCaseImpl(subBreedsRepository, breedImagesRepository);
+    }
+
+    @Bean
+    BreedImagesUseCase breedImagesUseCase(
+            BreedImagesRepository breedImagesRepository
+    ){
+        return new BreedImagesUseCaseImpl(breedImagesRepository);
     }
 
     // Data.repository
