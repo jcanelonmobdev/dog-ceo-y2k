@@ -1,6 +1,6 @@
-package cl.mobdev.dogceoy2k.application.data.info.datasource;
+package cl.mobdev.dogceoy2k.application.data.breedImage.datasource;
 
-import cl.mobdev.dogceoy2k.application.data.info.entity.BreedImagesEntity;
+import cl.mobdev.dogceoy2k.application.data.breedImage.entity.BreedImagesEntity;
 import cl.mobdev.dogceoy2k.configuration.BreedProperties;
 import org.springframework.web.client.RestOperations;
 

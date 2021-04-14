@@ -1,9 +1,8 @@
 package cl.mobdev.dogceoy2k.application.data.info.datasource;
 
-import cl.mobdev.dogceoy2k.application.data.info.entity.BreedImagesEntity;
-import cl.mobdev.dogceoy2k.application.data.info.entity.SubBreedsEntity;
+import cl.mobdev.dogceoy2k.application.data.subBreed.entity.SubBreedsEntity;
+import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSourceImpl;
 import cl.mobdev.dogceoy2k.configuration.BreedProperties;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.springframework.web.client.RestOperations;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 class SubBreedsDataSourceImplTest {

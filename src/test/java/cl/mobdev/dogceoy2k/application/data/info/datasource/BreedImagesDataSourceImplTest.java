@@ -1,6 +1,7 @@
 package cl.mobdev.dogceoy2k.application.data.info.datasource;
 
-import cl.mobdev.dogceoy2k.application.data.info.entity.BreedImagesEntity;
+import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSourceImpl;
+import cl.mobdev.dogceoy2k.application.data.breedImage.entity.BreedImagesEntity;
 import cl.mobdev.dogceoy2k.configuration.BreedProperties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

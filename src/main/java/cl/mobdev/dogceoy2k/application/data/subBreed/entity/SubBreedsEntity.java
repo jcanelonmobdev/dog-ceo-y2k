@@ -1,4 +1,4 @@
-package cl.mobdev.dogceoy2k.application.data.info.entity;
+package cl.mobdev.dogceoy2k.application.data.subBreed.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
