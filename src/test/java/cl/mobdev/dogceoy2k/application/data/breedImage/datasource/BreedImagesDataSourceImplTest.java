@@ -1,6 +1,5 @@
-package cl.mobdev.dogceoy2k.application.data.info.datasource;
+package cl.mobdev.dogceoy2k.application.data.breedImage.datasource;
 
-import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSourceImpl;
 import cl.mobdev.dogceoy2k.application.data.breedImage.entity.BreedImagesEntity;
 import cl.mobdev.dogceoy2k.configuration.BreedProperties;
 import org.junit.jupiter.api.Assertions;
@@ -12,10 +11,10 @@ import org.springframework.web.client.RestOperations;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 class BreedImagesDataSourceImplTest {
-
     private final String BREED_NAME = "bulldog";
     private final String DATA_STATUS = "success";
     private final String DATA_IMAGES_1 = "https://images.dog.ceo/breeds/bulldog-boston/20200710_175933.jpg";

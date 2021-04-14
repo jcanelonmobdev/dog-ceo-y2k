@@ -1,7 +1,6 @@
-package cl.mobdev.dogceoy2k.application.data.info.datasource;
+package cl.mobdev.dogceoy2k.application.data.subBreed.datasource;
 
 import cl.mobdev.dogceoy2k.application.data.subBreed.entity.SubBreedsEntity;
-import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSourceImpl;
 import cl.mobdev.dogceoy2k.configuration.BreedProperties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 import static org.mockito.Mockito.when;
 
 class SubBreedsDataSourceImplTest {
-
     private final String BREED_NAME = "bulldog";
     private final String DATA_STATUS = "success";
     private final String DATA_SUBBREED_1 = "french";
