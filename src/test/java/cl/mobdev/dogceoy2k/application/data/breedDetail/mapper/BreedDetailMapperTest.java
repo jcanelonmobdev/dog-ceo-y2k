@@ -29,6 +29,6 @@ class BreedDetailMapperTest {
     public void shouldReturnValidBreedDetail_whenReverseMapIsCalled(){
         BreedDetailModel breedDetail = sut.reverseMap(BREED_NAME);
 
-        Assertions.assertEquals(breedDetail.breed, BREED_NAME);
+        Assertions.assertEquals(BREED_NAME, breedDetail.breed);
     }
 }
