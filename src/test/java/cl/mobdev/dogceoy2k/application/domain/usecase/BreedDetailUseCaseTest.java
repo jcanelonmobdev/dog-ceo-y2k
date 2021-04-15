@@ -1,7 +1,5 @@
 package cl.mobdev.dogceoy2k.application.domain.usecase;
 
-import cl.mobdev.dogceoy2k.application.data.breedImage.entity.BreedImagesEntity;
-import cl.mobdev.dogceoy2k.application.data.subBreed.entity.SubBreedsEntity;
 import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
 import cl.mobdev.dogceoy2k.application.domain.repository.BreedDetailRepository;
 import org.junit.jupiter.api.Assertions;
@@ -9,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 
@@ -53,7 +50,7 @@ class BreedDetailUseCaseTest {
     }
 
     @Test
-    void getBreedDetails() {
+    void shouldReturnValidBreedDetailModel_whenGetBreedDetailsIsCalled() {
         when(breedDetailRepositoryMock.getDetails(BREED_NAME)).thenReturn(breedDetailModelMock);
 
         BreedDetailModel breedDetail = sut.getBreedDetails(BREED_NAME);
