@@ -11,11 +11,6 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 class MapperTest {
-    private String DATA_STRING = "1";
-    private Integer DATA_INTEGER = 1;
-
-    String stringMock;
-    Integer integerMock;
     List<String> listStringMock;
     List<Integer> listIntegerMock;
 
@@ -29,9 +24,6 @@ class MapperTest {
         listStringMock.add("1");
         listStringMock.add("2");
         listStringMock.add("3");
-
-        stringMock = DATA_STRING;
-        integerMock = DATA_INTEGER;
 
         listIntegerMock = new ArrayList<>();
         listIntegerMock.add(1);
