@@ -1,45 +1,71 @@
 package cl.mobdev.dogceoy2k.configuration;
 
+import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSource;
+import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSource;
+import cl.mobdev.dogceoy2k.application.domain.repository.BreedDetailRepository;
+import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
+import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
+import cl.mobdev.dogceoy2k.common.Mapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import org.springframework.web.client.RestOperations;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 class BreedConfigurationTest {
 
+    /*
+     * Setup a context runner with the class BreedConfiguration
+     * in it. For that, I use ApplicationContextRunner#withUserConfiguration()
+     * methods to populate the context.
+     */
+    ApplicationContextRunner context = new ApplicationContextRunner()
+            .withUserConfiguration(BreedConfiguration.class);
+
     @BeforeEach
     void setUp() {
+
     }
 
     @Test
-    void breedDetailController() {
+    void shouldCheckPresenceOf_breedDetailController() {
+        context.run(it -> assertThat(it).hasSingleBean(BreedDetailController.class));
     }
 
     @Test
-    void breedDetailUseCase() {
+    void shouldCheckPresenceOf_breedDetailUseCase() {
+        context.run(it -> assertThat(it).hasSingleBean(BreedDetailUseCase.class));
     }
 
     @Test
-    void breedDetailRepository() {
+    void shouldCheckPresenceOf_breedDetailRepository() {
+        context.run(it -> assertThat(it).hasSingleBean(BreedDetailRepository.class));
     }
 
     @Test
-    void breedDetailModelStringMapper() {
+    void shouldCheckPresenceOf_breedDetailModelStringMapper() {
+        context.run(it -> assertThat(it).hasSingleBean(Mapper.class));
     }
 
     @Test
-    void breedsDataSource() {
+    void shouldCheckPresenceOf_subBreedsDataSource() {
+        context.run(it -> assertThat(it).hasSingleBean(SubBreedsDataSource.class));
     }
 
     @Test
-    void breedImagesDataSource() {
+    void shouldCheckPresenceOf_breedImagesDataSource() {
+        context.run(it -> assertThat(it).hasSingleBean(BreedImagesDataSource.class));
     }
 
     @Test
-    void breedProperties() {
+    public void shouldCheckPresenceOf_breedProperties(){
+        context.run(it -> assertThat(it).hasSingleBean(BreedProperties.class));
     }
 
     @Test
-    void restOperations() {
+    public void shouldCheckPresenceOf_restOperations(){
+        context.run(it -> assertThat(it).hasSingleBean(RestOperations.class));
     }
 }

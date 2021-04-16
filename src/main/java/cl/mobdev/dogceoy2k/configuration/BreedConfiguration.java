@@ -60,7 +60,7 @@ public class BreedConfiguration {
     // Data.datasource
 
     @Bean
-    SubBreedsDataSource breedsDataSource(
+    SubBreedsDataSource subBreedsDataSource(
             RestOperations restOperations,
             BreedProperties breedProperties
     ){
@@ -78,7 +78,7 @@ public class BreedConfiguration {
     // Configuration
 
     @Bean
-    BreedProperties BreedProperties() {
+    BreedProperties breedProperties() {
 
         return new BreedProperties();
     }
