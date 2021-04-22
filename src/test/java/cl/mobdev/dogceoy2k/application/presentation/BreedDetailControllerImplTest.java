@@ -1,8 +1,8 @@
 package cl.mobdev.dogceoy2k.application.presentation;
 
-import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
+import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
-import cl.mobdev.dogceoy2k.application.presentation.body.BreedBody;
+import cl.mobdev.dogceoy2k.application.presentation.body.DetailsBody;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,8 +17,8 @@ class BreedDetailControllerImplTest {
 
     private BreedDetailController sut;
 
-    private BreedDetailModel breedDetailModelMock;
-    private BreedBody breedBodyMock;
+    private BreedDetailsModel breedDetailsModelMock;
+    private DetailsBody detailsBodyMock;
 
     private final String BREED_NAME = "bulldog";
 
@@ -38,32 +38,32 @@ class BreedDetailControllerImplTest {
         MockitoAnnotations.openMocks(this);
         sut = new BreedDetailControllerImpl(breedDetailUseCaseMock);
 
-        breedBodyMock = new BreedBody();
-        breedBodyMock.breed = BREED_NAME;
+        detailsBodyMock = new DetailsBody();
+        detailsBodyMock.breed = BREED_NAME;
 
-        breedDetailModelMock = new BreedDetailModel();
-        breedDetailModelMock.breed = BREED_NAME;
-        breedDetailModelMock.images = new ArrayList<>();
-        breedDetailModelMock.images.add(DATA_IMAGES_1);
-        breedDetailModelMock.images.add(DATA_IMAGES_2);
-        breedDetailModelMock.images.add(DATA_IMAGES_3);
-        breedDetailModelMock.subBreeds = new ArrayList<>();
-        breedDetailModelMock.subBreeds.add(DATA_SUBBREED_1);
-        breedDetailModelMock.subBreeds.add(DATA_SUBBREED_2);
-        breedDetailModelMock.subBreeds.add(DATA_SUBBREED_3);
+        breedDetailsModelMock = new BreedDetailsModel();
+        breedDetailsModelMock.breed = BREED_NAME;
+        breedDetailsModelMock.images = new ArrayList<>();
+        breedDetailsModelMock.images.add(DATA_IMAGES_1);
+        breedDetailsModelMock.images.add(DATA_IMAGES_2);
+        breedDetailsModelMock.images.add(DATA_IMAGES_3);
+        breedDetailsModelMock.subBreeds = new ArrayList<>();
+        breedDetailsModelMock.subBreeds.add(DATA_SUBBREED_1);
+        breedDetailsModelMock.subBreeds.add(DATA_SUBBREED_2);
+        breedDetailsModelMock.subBreeds.add(DATA_SUBBREED_3);
     }
 
     @Test
     public void shouldReturnValidBreedModel_whenIsCalled(){
-        when(breedDetailUseCaseMock.getBreedDetails(BREED_NAME)).thenReturn(breedDetailModelMock);
+        when(breedDetailUseCaseMock.getBreedDetails(BREED_NAME)).thenReturn(breedDetailsModelMock);
 
-        ResponseEntity<BreedDetailModel> responseEntity = sut.info(breedBodyMock);
-        BreedDetailModel breedDetailModel = responseEntity.getBody();
+        ResponseEntity<BreedDetailsModel> responseEntity = sut.info(detailsBodyMock);
+        BreedDetailsModel breedDetailsModel = responseEntity.getBody();
 
         Assertions.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         Assertions.assertNotNull(responseEntity.getBody());
 
-        Assertions.assertEquals(BREED_NAME, breedDetailModel.breed);
+        Assertions.assertEquals(BREED_NAME, breedDetailsModel.breed);
 
 
     }

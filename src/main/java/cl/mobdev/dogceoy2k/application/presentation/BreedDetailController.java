@@ -1,7 +1,7 @@
 package cl.mobdev.dogceoy2k.application.presentation;
 
-import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
-import cl.mobdev.dogceoy2k.application.presentation.body.BreedBody;
+import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
+import cl.mobdev.dogceoy2k.application.presentation.body.DetailsBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public interface BreedDetailController {
     @PostMapping(value = "/info", consumes = "application/json", produces = "application/json")
-    ResponseEntity<BreedDetailModel> info(@RequestBody BreedBody breedBody);
+    ResponseEntity<BreedDetailsModel> info(@RequestBody DetailsBody detailsBody);
 }

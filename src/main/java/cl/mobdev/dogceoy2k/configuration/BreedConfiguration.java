@@ -1,15 +1,13 @@
 package cl.mobdev.dogceoy2k.configuration;
 
-import cl.mobdev.dogceoy2k.application.data.breedDetail.mapper.BreedDetailMapper;
-import cl.mobdev.dogceoy2k.application.data.breedDetail.repository.BreedDetailRepositoryImpl;
-import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSource;
-import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSourceImpl;
-import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSource;
-import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSourceImpl;
-import cl.mobdev.dogceoy2k.application.data.breedImage.entity.BreedImagesEntity;
-import cl.mobdev.dogceoy2k.application.data.subBreed.entity.SubBreedsEntity;
-import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
-import cl.mobdev.dogceoy2k.application.domain.repository.BreedDetailRepository;
+import cl.mobdev.dogceoy2k.application.data.breed.mapper.BreedDetailsModelMapper;
+import cl.mobdev.dogceoy2k.application.data.breed.repository.BreedRepositoryImpl;
+import cl.mobdev.dogceoy2k.application.data.images.datasource.BreedImagesDataSource;
+import cl.mobdev.dogceoy2k.application.data.images.datasource.BreedImagesDataSourceImpl;
+import cl.mobdev.dogceoy2k.application.data.subbreeds.datasource.SubBreedsDataSource;
+import cl.mobdev.dogceoy2k.application.data.subbreeds.datasource.SubBreedsDataSourceImpl;
+import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
+import cl.mobdev.dogceoy2k.application.domain.repository.BreedRepository;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailControllerImpl;
@@ -33,28 +31,28 @@ public class BreedConfiguration {
 
     @Bean
     BreedDetailUseCase breedDetailUseCase(
-            BreedDetailRepository breedDetailRepository
+            BreedRepository breedRepository
     ){
-        return new BreedDetailUseCase(breedDetailRepository);
+        return new BreedDetailUseCase(breedRepository);
     }
 
     // Data.repository
 
     @Bean
-    BreedDetailRepository breedDetailRepository(
+    BreedRepository breedDetailRepository(
             BreedImagesDataSource breedImagesDataSource,
             SubBreedsDataSource subBreedsDataSource,
-            Mapper<BreedDetailModel, String> breedDetailModelStringMapper
+            Mapper<BreedDetailsModel, String> breedDetailModelStringMapper
     ){
-        return new BreedDetailRepositoryImpl(
+        return new BreedRepositoryImpl(
                 breedImagesDataSource, subBreedsDataSource, breedDetailModelStringMapper);
     }
 
     // Data.mapper
 
     @Bean
-    Mapper<BreedDetailModel, String> breedDetailModelStringMapper(){
-        return new BreedDetailMapper();
+    Mapper<BreedDetailsModel, String> breedDetailModelStringMapper(){
+        return new BreedDetailsModelMapper();
     }
 
     // Data.datasource

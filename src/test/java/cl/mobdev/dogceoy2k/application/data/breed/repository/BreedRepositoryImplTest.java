@@ -1,13 +1,11 @@
-package cl.mobdev.dogceoy2k.application.data.breedDetail.repository;
+package cl.mobdev.dogceoy2k.application.data.breed.repository;
 
-import cl.mobdev.dogceoy2k.application.data.breedDetail.mapper.BreedDetailMapper;
-import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSource;
-import cl.mobdev.dogceoy2k.application.data.breedImage.entity.BreedImagesEntity;
-import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSource;
-import cl.mobdev.dogceoy2k.application.data.subBreed.entity.SubBreedsEntity;
-import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
+import cl.mobdev.dogceoy2k.application.data.images.datasource.BreedImagesDataSource;
+import cl.mobdev.dogceoy2k.application.data.images.entity.BreedImagesEntity;
+import cl.mobdev.dogceoy2k.application.data.subbreeds.datasource.SubBreedsDataSource;
+import cl.mobdev.dogceoy2k.application.data.subbreeds.entity.SubBreedsEntity;
+import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
 import cl.mobdev.dogceoy2k.common.Mapper;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,10 +14,9 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-class BreedDetailRepositoryImplTest {
+class BreedRepositoryImplTest {
 
     private final String BREED_NAME = "bulldog";
     private final String DATA_STATUS = "success";
@@ -31,10 +28,10 @@ class BreedDetailRepositoryImplTest {
     private final String DATA_SUBBREED_2 = "english";
     private final String DATA_SUBBREED_3 = "boston";
 
-    private BreedDetailRepositoryImpl sut;
+    private BreedRepositoryImpl sut;
     private SubBreedsEntity subBreedsEntityMock;
     private BreedImagesEntity breedImagesEntityMock;
-    private BreedDetailModel breedDetailModel;
+    private BreedDetailsModel breedDetailsModel;
 
     @Mock
     private BreedImagesDataSource breedImagesDataSourceMock;
@@ -43,14 +40,14 @@ class BreedDetailRepositoryImplTest {
     private SubBreedsDataSource subBreedsDataSourceMock;
 
     @Mock
-    private Mapper<BreedDetailModel, String> breedDetailModelStringMapperMock;
+    private Mapper<BreedDetailsModel, String> breedDetailModelStringMapperMock;
 
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
 
-        sut = new BreedDetailRepositoryImpl(breedImagesDataSourceMock, subBreedsDataSourceMock, breedDetailModelStringMapperMock);
+        sut = new BreedRepositoryImpl(breedImagesDataSourceMock, subBreedsDataSourceMock, breedDetailModelStringMapperMock);
 
         breedImagesEntityMock = new BreedImagesEntity();
         breedImagesEntityMock.status = DATA_STATUS;
@@ -66,17 +63,17 @@ class BreedDetailRepositoryImplTest {
         subBreedsEntityMock.message.add(DATA_SUBBREED_2);
         subBreedsEntityMock.message.add(DATA_SUBBREED_3);
 
-        breedDetailModel = new BreedDetailModel();
-        breedDetailModel.breed = BREED_NAME;
+        breedDetailsModel = new BreedDetailsModel();
+        breedDetailsModel.breed = BREED_NAME;
     }
 
     @Test
     void getDetails() {
         when(breedImagesDataSourceMock.getImages(BREED_NAME)).thenReturn(breedImagesEntityMock);
         when(subBreedsDataSourceMock.getSubBreeds(BREED_NAME)).thenReturn(subBreedsEntityMock);
-        when(breedDetailModelStringMapperMock.reverseMap(BREED_NAME)).thenReturn(breedDetailModel);
+        when(breedDetailModelStringMapperMock.reverseMap(BREED_NAME)).thenReturn(breedDetailsModel);
 
-        BreedDetailModel breedDetail = sut.getDetails(BREED_NAME);
+        BreedDetailsModel breedDetail = sut.getDetails(BREED_NAME);
 
         Assertions.assertEquals(BREED_NAME, breedDetail.breed);
         Assertions.assertEquals(breedImagesEntityMock.message.stream().count(), breedDetail.images.stream().count());

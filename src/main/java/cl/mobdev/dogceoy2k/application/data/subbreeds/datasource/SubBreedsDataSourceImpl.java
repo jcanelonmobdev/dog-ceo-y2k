@@ -1,6 +1,6 @@
-package cl.mobdev.dogceoy2k.application.data.subBreed.datasource;
+package cl.mobdev.dogceoy2k.application.data.subbreeds.datasource;
 
-import cl.mobdev.dogceoy2k.application.data.subBreed.entity.SubBreedsEntity;
+import cl.mobdev.dogceoy2k.application.data.subbreeds.entity.SubBreedsEntity;
 import cl.mobdev.dogceoy2k.configuration.BreedProperties;
 import org.springframework.web.client.RestOperations;
 

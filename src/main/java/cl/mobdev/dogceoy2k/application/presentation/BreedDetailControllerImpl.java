@@ -1,8 +1,8 @@
 package cl.mobdev.dogceoy2k.application.presentation;
 
-import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
+import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
-import cl.mobdev.dogceoy2k.application.presentation.body.BreedBody;
+import cl.mobdev.dogceoy2k.application.presentation.body.DetailsBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +15,8 @@ public class BreedDetailControllerImpl implements BreedDetailController {
     }
 
     @Override
-    public ResponseEntity<BreedDetailModel> info(@RequestBody BreedBody breedBody) {
-        BreedDetailModel breedModel = this.breedDetailUseCase.getBreedDetails(breedBody.breed);
+    public ResponseEntity<BreedDetailsModel> info(@RequestBody DetailsBody detailsBody) {
+        BreedDetailsModel breedModel = this.breedDetailUseCase.getBreedDetails(detailsBody.breed);
 
         return new ResponseEntity<>(breedModel, HttpStatus.OK);
     }

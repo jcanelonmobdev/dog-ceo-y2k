@@ -1,8 +1,8 @@
 package cl.mobdev.dogceoy2k.configuration;
 
-import cl.mobdev.dogceoy2k.application.data.breedImage.datasource.BreedImagesDataSource;
-import cl.mobdev.dogceoy2k.application.data.subBreed.datasource.SubBreedsDataSource;
-import cl.mobdev.dogceoy2k.application.domain.repository.BreedDetailRepository;
+import cl.mobdev.dogceoy2k.application.data.images.datasource.BreedImagesDataSource;
+import cl.mobdev.dogceoy2k.application.data.subbreeds.datasource.SubBreedsDataSource;
+import cl.mobdev.dogceoy2k.application.domain.repository.BreedRepository;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
 import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
 import cl.mobdev.dogceoy2k.common.Mapper;
@@ -41,7 +41,7 @@ class BreedConfigurationTest {
 
     @Test
     void shouldCheckPresenceOf_breedDetailRepository() {
-        context.run(it -> assertThat(it).hasSingleBean(BreedDetailRepository.class));
+        context.run(it -> assertThat(it).hasSingleBean(BreedRepository.class));
     }
 
     @Test

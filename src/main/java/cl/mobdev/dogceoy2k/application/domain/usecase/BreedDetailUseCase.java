@@ -1,16 +1,16 @@
 package cl.mobdev.dogceoy2k.application.domain.usecase;
 
-import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailModel;
-import cl.mobdev.dogceoy2k.application.domain.repository.BreedDetailRepository;
+import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
+import cl.mobdev.dogceoy2k.application.domain.repository.BreedRepository;
 
 public class BreedDetailUseCase {
-    private final BreedDetailRepository breedDetailRepository;
+    private final BreedRepository breedRepository;
 
-    public BreedDetailUseCase(BreedDetailRepository breedDetailRepository) {
-        this.breedDetailRepository = breedDetailRepository;
+    public BreedDetailUseCase(BreedRepository breedRepository) {
+        this.breedRepository = breedRepository;
     }
 
-    public BreedDetailModel getBreedDetails(String breed) {
-        return this.breedDetailRepository.getDetails(breed);
+    public BreedDetailsModel getBreedDetails(String breed) {
+        return this.breedRepository.getDetails(breed);
     }
 }
