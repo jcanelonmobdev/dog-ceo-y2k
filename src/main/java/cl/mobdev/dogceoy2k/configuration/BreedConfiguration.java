@@ -9,8 +9,8 @@ import cl.mobdev.dogceoy2k.application.data.subbreeds.datasource.SubBreedsDataSo
 import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
 import cl.mobdev.dogceoy2k.application.domain.repository.BreedRepository;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
-import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
-import cl.mobdev.dogceoy2k.application.presentation.BreedDetailControllerImpl;
+import cl.mobdev.dogceoy2k.application.presentation.controller.BreedDetailController;
+import cl.mobdev.dogceoy2k.application.presentation.controller.BreedDetailControllerImpl;
 import cl.mobdev.dogceoy2k.common.Mapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

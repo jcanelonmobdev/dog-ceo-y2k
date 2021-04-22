@@ -1,4 +1,4 @@
-package cl.mobdev.dogceoy2k.application.presentation;
+package cl.mobdev.dogceoy2k.application.presentation.controller;
 
 import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;

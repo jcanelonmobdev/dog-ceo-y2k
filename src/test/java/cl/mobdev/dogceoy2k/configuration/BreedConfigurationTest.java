@@ -4,7 +4,7 @@ import cl.mobdev.dogceoy2k.application.data.images.datasource.BreedImagesDataSou
 import cl.mobdev.dogceoy2k.application.data.subbreeds.datasource.SubBreedsDataSource;
 import cl.mobdev.dogceoy2k.application.domain.repository.BreedRepository;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
-import cl.mobdev.dogceoy2k.application.presentation.BreedDetailController;
+import cl.mobdev.dogceoy2k.application.presentation.controller.BreedDetailController;
 import cl.mobdev.dogceoy2k.common.Mapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

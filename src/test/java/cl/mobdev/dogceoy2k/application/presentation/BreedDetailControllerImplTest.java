@@ -3,6 +3,8 @@ package cl.mobdev.dogceoy2k.application.presentation;
 import cl.mobdev.dogceoy2k.application.domain.model.BreedDetailsModel;
 import cl.mobdev.dogceoy2k.application.domain.usecase.BreedDetailUseCase;
 import cl.mobdev.dogceoy2k.application.presentation.body.DetailsBody;
+import cl.mobdev.dogceoy2k.application.presentation.controller.BreedDetailController;
+import cl.mobdev.dogceoy2k.application.presentation.controller.BreedDetailControllerImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
